@@ -1,6 +1,6 @@
 [build]
-builder = "NIXPACKS"
-buildCommand = "npm install && npx prisma generate && cd client && rm -rf node_modules/.cache && npm install && npm run build"
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
 
 [deploy]
 startCommand = "npx prisma db push && node server/seed.js && node server/index.js"
