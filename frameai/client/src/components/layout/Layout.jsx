@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth.jsx';
 import { Eye, LayoutDashboard, Users, ShoppingBag, LogOut, LogIn } from 'lucide-react';
 
 export default function Layout() {

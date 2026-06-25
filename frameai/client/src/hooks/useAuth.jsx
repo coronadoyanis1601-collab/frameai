@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, createContext, useContext, createElement } from 'react';
 import api from '../lib/api';
 
 const AuthContext = createContext(null);
@@ -30,11 +30,8 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  return (
-    <AuthContext.Provider value={{ user, login, logout, loading, isAdmin: user?.role === 'ADMIN' }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  const value = { user, login, logout, loading, isAdmin: user?.role === 'ADMIN' };
+  return createElement(AuthContext.Provider, { value }, children);
 };
 
 export const useAuth = () => useContext(AuthContext);
