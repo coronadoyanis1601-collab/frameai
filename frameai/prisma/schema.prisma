@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(SELLER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  SELLER
+}
+
+model Product {
+  id                  String          @id @default(uuid())
+  name                String
+  shape               String
+  color               String
+  material            String
+  weight              String
+  price               Float
+  score               Int
+  style               String
+  availability        Availability    @default(SITE_BOUTIQUE)
+  stock               Int             @default(0)
+  image               String?
+  reason              String
+  recommendedShapes   String
+  recommendedColors   String
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  recommendations     Recommendation[]
+  reservations        Reservation[]
+}
+
+enum Availability {
+  SITE_BOUTIQUE
+  BOUTIQUE_ONLY
+  SITE_ONLY
+  RUPTURE
+}
+
+model Client {
+  id           String        @id @default(uuid())
+  firstName    String
+  lastName     String
+  email        String?
+  phone        String?
+  photo        String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  analyses     Analysis[]
+  reservations Reservation[]
+}
+
+model Analysis {
+  id                 String           @id @default(uuid())
+  clientId           String
+  client             Client           @relation(fields: [clientId], references: [id])
+  faceShape          String
+  skinTone           String
+  hairColor          String
+  recommendedShapes  String
+  recommendedColors  String
+  photoUrl           String?
+  status             AnalysisStatus   @default(COMPLETED)
+  createdAt          DateTime         @default(now())
+  recommendations    Recommendation[]
+}
+
+enum AnalysisStatus {
+  PENDING
+  COMPLETED
+}
+
+model Recommendation {
+  id          String   @id @default(uuid())
+  analysisId  String
+  analysis    Analysis @relation(fields: [analysisId], references: [id])
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id])
+  score       Int
+  reason      String
+  createdAt   DateTime @default(now())
+}
+
+model Reservation {
+  id          String            @id @default(uuid())
+  clientId    String
+  client      Client            @relation(fields: [clientId], references: [id])
+  productId   String
+  product     Product           @relation(fields: [productId], references: [id])
+  status      ReservationStatus @default(PENDING)
+  boutique    String?
+  notes       String?
+  analysisId  String?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
