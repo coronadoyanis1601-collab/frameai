@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "analysisId": {
+      "type": "string"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "productName": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "name": "Recommendation"
+}

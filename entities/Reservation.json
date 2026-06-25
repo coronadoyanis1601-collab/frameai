@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "type": "string"
+    },
+    "clientName": {
+      "type": "string"
+    },
+    "productId": {
+      "type": "string"
+    },
+    "productName": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "cancelled",
+        "completed"
+      ]
+    },
+    "boutique": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "analysisId": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "name": "Reservation"
+}

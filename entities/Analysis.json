@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "clientId": {
+      "type": "string"
+    },
+    "clientName": {
+      "type": "string"
+    },
+    "faceShape": {
+      "type": "string"
+    },
+    "skinTone": {
+      "type": "string"
+    },
+    "hairColor": {
+      "type": "string"
+    },
+    "recommendedShapes": {
+      "type": "string"
+    },
+    "recommendedColors": {
+      "type": "string"
+    },
+    "photoUrl": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "completed"
+      ]
+    }
+  },
+  "required": [],
+  "name": "Analysis"
+}

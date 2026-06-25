@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "shape": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "material": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "score": {
+      "type": "number"
+    },
+    "style": {
+      "type": "string"
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "site_boutique",
+        "boutique_only",
+        "site_only",
+        "rupture"
+      ]
+    },
+    "stock": {
+      "type": "number"
+    },
+    "image": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "recommended_shapes": {
+      "type": "string"
+    },
+    "recommended_colors": {
+      "type": "string"
+    }
+  },
+  "required": [],
+  "name": "Product"
+}
