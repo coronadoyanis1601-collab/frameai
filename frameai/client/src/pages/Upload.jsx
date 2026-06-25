@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import { Upload as UploadIcon, User, Phone, Mail, ArrowRight, X, CheckCircle } from 'lucide-react';
 import api from '../lib/api';
-import { useAuth } from '../hooks/useAuth.jsx';
+import { useAuth } from '../hooks/useAuth.js';
 
 export default function Upload() {
   const [photo, setPhoto] = useState(null);

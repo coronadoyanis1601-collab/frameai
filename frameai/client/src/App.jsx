@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './hooks/useAuth.jsx';
+import { AuthProvider, useAuth } from './hooks/useAuth.js';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
