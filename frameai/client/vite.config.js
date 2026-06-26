@@ -4,7 +4,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [
     react({
-      include: ['**/*.jsx', '**/*.js', '**/*.tsx', '**/*.ts'],
+      // Force JSX transform for ALL .js and .jsx files
+      include: /\.(jsx?|tsx?)$/,
     }),
   ],
   server: {
@@ -13,6 +14,12 @@ export default defineConfig({
         target: 'http://localhost:3001',
         changeOrigin: true
       }
+    }
+  },
+  build: {
+    rollupOptions: {
+      // Force rollup to treat .js files as JSX too
+      plugins: [],
     }
   },
   esbuild: {
