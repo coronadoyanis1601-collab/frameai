@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Scan, ShoppingBag, TrendingUp, Clock, CheckCircle, XCircle, Package } from 'lucide-react';
 import api from '../lib/api';
-import { useAuth } from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useAuth.jsx';
 
 const statusConfig = {
   PENDING: { label: 'En attente', icon: Clock, color: 'text-yellow-600 bg-yellow-100' },

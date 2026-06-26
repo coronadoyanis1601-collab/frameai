@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Search, Edit2, Trash2, Package, Eye } from 'lucide-react';
 import api from '../lib/api';
-import { useAuth } from '../hooks/useAuth.js';
+import { useAuth } from '../hooks/useAuth.jsx';
 
 const availabilityConfig = {
   SITE_BOUTIQUE: { label: 'Site + Boutique', color: 'bg-green-100 text-green-700' },
