@@ -1,6 +1,6 @@
 [build]
-builder = "DOCKERFILE"
-dockerfilePath = "Dockerfile"
+builder = "NIXPACKS"
+buildCommand = "rm -f client/src/hooks/useAuth.js && npm install && npx prisma generate && cd client && npm install && npm run build"
 
 [deploy]
 startCommand = "npx prisma db push && node server/seed.js && node server/index.js"
